@@ -8,7 +8,7 @@ image:
   repository: jinny908/aiwa_spring
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v9"
+  tag: "20241023-072444"
 
 # imagePullSecrets: []
 nameOverride: ""

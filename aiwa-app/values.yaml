@@ -8,7 +8,7 @@ image:
   repository: 055937727491.dkr.ecr.ap-northeast-2.amazonaws.com/aiwa-project/aiwa-app
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "20241024-091350"
+  tag: "latest"
 
 # imagePullSecrets: []
 nameOverride: ""

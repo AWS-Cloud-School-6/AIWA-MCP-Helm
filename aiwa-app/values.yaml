@@ -35,7 +35,6 @@ service:
 resources:
   {}
 
-readOnlyRootFilesystem: "20241024-100718"
 
 # namespace: aiwa-app
 

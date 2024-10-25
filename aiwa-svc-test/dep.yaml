@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-deployment
+  labels:
+    app: svc-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: svc-test
+  template:
+    metadata:
+      labels:
+        app: svc-test
+    spec:
+      containers:
+        - name: spring
+          image: jinny908/aiwa_spring:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-svc
+  namespace: svc-test
+spec:
+  selector:
+    app: svc-test
+  ports:
+    - name: spring-svc
+      protocol: TCP
+      port: 80
+      targetPort: 8080 # 포트 번호로 수정

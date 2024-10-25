@@ -5,7 +5,7 @@ metadata:
   labels:
     app: svc-test
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: svc-test

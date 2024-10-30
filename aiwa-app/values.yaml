@@ -17,13 +17,13 @@ fullnameOverride: ""
 namespace: default
 
 labels:
-  app: spring
+  app: aws
 
 selectorLabels:
-  app: spring
+  app: aws
 
 podLabels:
-  app: spring
+  app: aws
 
 imagePullSecrets:
   - name: ecr-secret

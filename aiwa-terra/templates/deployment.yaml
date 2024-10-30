@@ -36,7 +36,7 @@ spec:
               while true; do sleep 30; done
           envFrom:
             - secretRef:
-                {{- toYaml .Values.secretRef | nindent 8 }}
+                {{ .Values.secretRef }}
           resources:
             requests:
               cpu: 100m

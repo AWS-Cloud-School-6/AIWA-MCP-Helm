@@ -34,6 +34,9 @@ spec:
               aws configure set output json 
               java -jar /app/terraform.jar 
               while true; do sleep 30; done
+          envFrom:
+            - secretRef:
+                name: {{ .Values.secretRef[0].name }}
           resources:
             requests:
               cpu: 100m

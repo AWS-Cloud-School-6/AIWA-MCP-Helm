@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aiwa-terraform-deploy
+  namespace: { { .Values.namespace } }
+  labels: { { - toYaml .Values.labels | nindent 4 } }
+spec:
+  replicas: { { .Values.replicaCount } }
+  selector:
+    matchLabels: { { - toYaml .Values.labels | nindent 6 } }
+  template:
+    metadata:
+      labels: { { - toYaml .Values.labels | nindent 8 } }
+    spec:
+      imagePullSecrets: { { - toYaml .Values.imagePullSecrets | nindent 8 } }
+      containers:
+        - name: { { .Chart.Name } }
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: { { .Values.image.pullPolicy } }
+          ports:
+            - containerPort: { { .Values.service.port } }
+          # livenessProbe:
+          #   {{- toYaml .Values.livenessProbe | nindent 12 }}
+          # readinessProbe:
+          #   {{- toYaml .Values.readinessProbe | nindent 12 }}
+          command: ["/bin/bash"]
+          args:
+            - "-c"
+            - |
+              aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+              aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+              aws configure set default.region ap-northeast-2
+              aws configure set output json
+              java -jar /app/terraform.jar
+              while true; do sleep 30; done
+          envFrom:
+            - secretRef:
+                name: { { .Values.secretRef } }
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi

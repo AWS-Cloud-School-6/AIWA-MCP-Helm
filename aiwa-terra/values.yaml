@@ -27,7 +27,6 @@ secretRef:
 ingress:
   enabled: false  
 
-deploymentName: terraform-deploy
 
 
 # replicaCount: 1

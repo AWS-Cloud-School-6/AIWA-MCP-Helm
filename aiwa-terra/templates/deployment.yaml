@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aiwa-terraform-deploy
-  namespace: { { .Values.namespace } }
-  labels: { { - toYaml .Values.labels | nindent 4 } }
+  namespace: {{ .Values.namespace }}
+  labels: {{ - toYaml .Values.labels | nindent 4 }}
 spec:
-  replicas: { { .Values.replicaCount } }
+  replicas: {{ .Values.replicaCount }}
   selector:
-    matchLabels: { { - toYaml .Values.labels | nindent 6 } }
+    matchLabels: {{ - toYaml .Values.labels | nindent 6 }}
   template:
     metadata:
-      labels: { { - toYaml .Values.labels | nindent 8 } }
+      labels: {{ - toYaml .Values.labels | nindent 8 }}
     spec:
-      imagePullSecrets: { { - toYaml .Values.imagePullSecrets | nindent 8 } }
+      imagePullSecrets: {{ - toYaml .Values.imagePullSecrets | nindent 8 }}
       containers:
-        - name: { { .Chart.Name } }
+        - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: { { .Values.image.pullPolicy } }
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: { { .Values.service.port } }
+            - containerPort: {{ .Values.service.port }}
           # livenessProbe:
           #   {{- toYaml .Values.livenessProbe | nindent 12 }}
           # readinessProbe:
@@ -35,7 +35,7 @@ spec:
               while true; do sleep 30; done
           envFrom:
             - secretRef:
-                name: { { .Values.secretRef } }
+                name: {{ .Values.secretRef }}
           resources:
             requests:
               cpu: 100m

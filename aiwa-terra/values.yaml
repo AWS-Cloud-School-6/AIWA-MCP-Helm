@@ -24,6 +24,10 @@ service:
 secretRef:
   - name: aws-credentials
 
+ingress:
+  enabled: false  
+
+
 
 
 # replicaCount: 1

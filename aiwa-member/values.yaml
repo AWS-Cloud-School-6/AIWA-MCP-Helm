@@ -17,7 +17,7 @@ selectorLabels:
   app: member
 
 podLabels:
-  app: members
+  app: member
 
 imagePullSecrets:
   - name: ecr-secret

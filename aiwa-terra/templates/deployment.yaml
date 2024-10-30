@@ -36,7 +36,7 @@ spec:
               while true; do sleep 30; done
           envFrom:
             - secretRef:
-                name: {{ .Values.secretRef.name }}
+                name: {{ (first .Values.secretRef).name }}
           resources:
             requests:
               cpu: 100m

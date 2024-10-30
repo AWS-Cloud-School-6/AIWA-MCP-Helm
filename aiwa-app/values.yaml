@@ -26,7 +26,7 @@ podLabels:
   app: spring
 
 imagePullSecrets:
-  - name: regcred
+  - name: ecr-secret
 
 service:
   type: ClusterIP

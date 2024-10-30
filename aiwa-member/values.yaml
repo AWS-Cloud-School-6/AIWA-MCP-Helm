@@ -1,0 +1,29 @@
+replicaCount: 3
+
+image:
+  repository: 055937727491.dkr.ecr.ap-northeast-2.amazonaws.com/aiwa-project/member
+  pullPolicy: Always
+  tag: "20241030-032736"
+
+nameOverride: ""
+fullnameOverride: ""
+
+namespace: default
+
+labels:
+  app: member
+
+selectorLabels:
+  app: member
+
+podLabels:
+  app: members
+
+imagePullSecrets:
+  - name: ecr-secret
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}

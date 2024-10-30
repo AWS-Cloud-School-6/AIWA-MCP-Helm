@@ -1,0 +1,62 @@
+# Global settings
+global:
+  namespace: default
+  imagePullSecrets:
+    - name: ecr-secret
+
+# Terraform service settings
+terraform:
+  labels:
+    app: terraform
+  replicaCount: 3
+  image:
+    repository: 055937727491.dkr.ecr.ap-northeast-2.amazonaws.com/aiwa-project/terraform
+    pullPolicy: Always
+    tag: "20241030-075757"
+  service:
+    type: ClusterIP
+    port: 8080
+  secretRef:
+    - name: aws-credentials
+  ingress:
+    enabled: false
+
+# Member service settings
+member:
+  replicaCount: 3
+  image:
+    repository: 055937727491.dkr.ecr.ap-northeast-2.amazonaws.com/aiwa-project/member
+    pullPolicy: Always
+    tag: "20241030-074654"
+  nameOverride: ""
+  fullnameOverride: ""
+  labels:
+    app: member
+  selectorLabels:
+    app: member
+  podLabels:
+    app: member
+  service:
+    type: ClusterIP
+    port: 80
+  resources: {}
+
+# App service settings
+app:
+  replicaCount: 3
+  image:
+    repository: 055937727491.dkr.ecr.ap-northeast-2.amazonaws.com/aiwa-project/aiwa-app
+    pullPolicy: Always
+    tag: "20241030-071725"
+  nameOverride: ""
+  fullnameOverride: ""
+  labels:
+    app: aws
+  selectorLabels:
+    app: aws
+  podLabels:
+    app: aws
+  service:
+    type: ClusterIP
+    port: 80
+  resources: {}

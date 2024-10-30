@@ -15,7 +15,7 @@ imagePullSecrets:
 image:
   repository: 055937727491.dkr.ecr.ap-northeast-2.amazonaws.com/aiwa-project/terraform
   pullPolicy: Always
-  tag: latest
+  tag: "20241030-025301"
 
 service:
   type: ClusterIP
@@ -36,7 +36,7 @@ ingress:
 #   repository: nginx
 #   pullPolicy: IfNotPresent
 #   # Overrides the image tag whose default is the chart appVersion.
-#   tag: ""
+#   tag: "20241030-025301"
 
 # imagePullSecrets: []
 # nameOverride: ""

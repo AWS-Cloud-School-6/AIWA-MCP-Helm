@@ -1,6 +1,6 @@
 apiVersion: v2
-name: aiwa-terra
-description: A Helm chart for Kubernetes
+name: aiwa-all
+description: Parent application for managing aiwa apps
 
 # A chart can be either an 'application' or a 'library' chart.
 #

@@ -7,7 +7,7 @@ namespace: default
 labels:
   app: terraform
 
-replicaCount: 1
+replicaCount: 10
 
 imagePullSecrets:
   - name: ecr-secret

@@ -1,0 +1,17 @@
+repoURL: https://github.com/your-org/your-repo.git
+targetRevision: HEAD
+
+apps:
+  aiwa-app:
+    enabled: true
+    path: aiwa-app
+  aiwa-terra:
+    enabled: true
+    path: aiwa-terra
+  aiwa-member:
+    enabled: true
+    path: aiwa-member
+
+destination:
+  server: https://kubernetes.default.svc
+  namespace: default

@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: 055937727491.dkr.ecr.ap-northeast-2.amazonaws.com/aiwa-project/aiwa-app
   pullPolicy: Always
-  tag: "20241031-022823"
+  tag: "20241031-033623"
   # Overrides the image tag whose default is the chart appVersion.
 
 # imagePullSecrets: []

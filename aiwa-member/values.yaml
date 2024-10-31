@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 5
 
 image:
   repository: 055937727491.dkr.ecr.ap-northeast-2.amazonaws.com/aiwa-project/member

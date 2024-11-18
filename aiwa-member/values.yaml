@@ -3,7 +3,7 @@ replicaCount: 5
 image:
   repository: 055937727491.dkr.ecr.ap-northeast-2.amazonaws.com/aiwa-project/member
   pullPolicy: Always
-  tag: "20241113-062229"
+  tag: "20241118-062714"
 
 nameOverride: ""
 fullnameOverride: ""

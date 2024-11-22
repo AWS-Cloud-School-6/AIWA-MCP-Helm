@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: "{{ include "aiwa-gcp.fullname" . }}-test-connection"
   labels:
-    {{- include "aiwa-app.labels" . | nindent 4 }}
+    {{- include "aiwa-gcp.labels" . | nindent 4 }}
   annotations:
     "helm.sh/hook": test
 spec:
